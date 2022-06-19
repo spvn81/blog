@@ -1,0 +1,131 @@
+.error {
+    color: red;
+}
+
+.razorpay-payment-button {
+    display: none
+}
+
+.w-5 {
+    width: 20PX;
+}
+
+#side-categories {
+    border: 2px solid #ccc;
+    width: 100%;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.item-list,
+.info-box {
+    background: #fff;
+    padding: 10px;
+}
+
+.item-list-body {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.panel-body p {
+    margin-bottom: 5px;
+}
+
+.info-box {
+    margin-bottom: 15px;
+}
+
+.item-list-footer {
+    padding-top: 10px;
+}
+
+.panel-heading a {
+    display: block;
+}
+
+.form-inline {
+    display: inline;
+}
+
+.form-inline select {
+    padding: 4px 10px;
+}
+
+.btn-menu-select {
+    padding: 4px 10px
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.menu-item-bar {
+    background: #eee;
+    padding: 5px 10px;
+    border: 1px solid #d7d7d7;
+    margin-bottom: 5px;
+    width: 75%;
+    cursor: move;
+    display: block;
+}
+
+#serialize_output {
+    display: none;
+}
+
+.menulocation label {
+    font-weight: normal;
+    display: block;
+}
+
+body.dragging,
+body.dragging * {
+    cursor: move !important;
+}
+
+.dragged {
+    position: absolute;
+    z-index: 1;
+}
+
+ol.example li.placeholder {
+    position: relative;
+}
+
+ol.example li.placeholder:before {
+    position: absolute;
+}
+
+#menuitem {
+    list-style: none;
+}
+
+#menuitem ul {
+    list-style: none;
+}
+
+.input-box {
+    width: 75%;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.input-box .form-control {
+    width: 50%
+}
+
+.menulocation label {
+    font-weight: normal;
+    display: block;
+}
