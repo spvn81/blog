@@ -42,19 +42,14 @@ Route::get('/foo', function () {
 Route::group(['middleware' => ['permission:menu']], function () {
     Route::get('menu', [menuController::class, 'menu']);
     Route::get('manage-menus/{id?}', [menuController::class, 'dynamic_menu']);
-    Route::post('create-menu',[menuController::class,'store']);
-    Route::get('add-categories-to-menu',[menuController::class,'addCatToMenu']);
-    Route::get('add-post-to-menu',[menuController::class,'addPostToMenu']);
-    Route::get('add-custom-link',[menuController::class,'addCustomLink']);
-    Route::get('update-menu',[menuController::class,'updateMenu']);
-    Route::post('update-menuitem/{id}',[menuController::class,'updateMenuItem']);
-    Route::get('delete-menuitem/{id}/{key}/{in?}',[menuController::class,'deleteMenuItem']);
-    Route::get('delete-menu/{id}',[menuController::class,'destroy']);
-
-
-
-
-
+    Route::post('create-menu', [menuController::class, 'store']);
+    Route::get('add-categories-to-menu', [menuController::class, 'addCatToMenu']);
+    Route::get('add-post-to-menu', [menuController::class, 'addPostToMenu']);
+    Route::get('add-custom-link', [menuController::class, 'addCustomLink']);
+    Route::get('update-menu', [menuController::class, 'updateMenu']);
+    Route::post('update-menuitem/{id}', [menuController::class, 'updateMenuItem']);
+    Route::get('delete-menuitem/{id}/{key}/{in?}', [menuController::class, 'deleteMenuItem']);
+    Route::get('delete-menu/{id}', [menuController::class, 'destroy']);
 });
 Route::group(['middleware' => ['permission:edit_menu']], function () {
     Route::get('manage-menu', [menuController::class, 'manage_menu']);
@@ -73,14 +68,13 @@ Route::group(['middleware' => ['permission:manage_page']], function () {
     Route::post('manage-page/process', [webController::class, 'manage_page_process']);
     Route::post('page/delete', [webController::class, 'page_delete']);
     Route::post('manage-page-image/delete', [webController::class, 'manage_page_image_delete']);
-     Route::post('/upload-files/editor',[webController::class,'upload_files_editor']);
+    Route::post('/upload-files/editor', [webController::class, 'upload_files_editor']);
 
-     Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
-     ->name('ckfinder_connector');
+    Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+        ->name('ckfinder_connector');
 
- Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
-     ->name('ckfinder_browser');
-
+    Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+        ->name('ckfinder_browser');
 });
 
 Route::group(['middleware' => ['permission:manage_banner']], function () {
@@ -89,7 +83,6 @@ Route::group(['middleware' => ['permission:manage_banner']], function () {
     Route::get('manage-banner/{id}', [bannerController::class, 'manage_banner']);
     Route::post('manage-banner/process', [bannerController::class, 'manage_banner_process']);
     Route::post('banner/delete', [bannerController::class, 'banner_delete']);
-
 });
 
 Route::group(['middleware' => ['permission:manage_home']], function () {
@@ -103,8 +96,6 @@ Route::group(['middleware' => ['permission:manage_home']], function () {
 Route::group(['middleware' => ['permission:dashboard']], function () {
     Route::get('dashboard', [userController::class, 'dashboard']);
 });
-
-
 
 
 Route::get('/login/web', [userController::class, 'login'])->name('login');
@@ -259,34 +250,27 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Route::group(['middleware' => ['permission:user_comments']], function () {
-    Route::get('user-comments',[CommentsController::class,'commentsController']);
-    Route::get('user-comments-reply/{id}',[CommentsController::class,'user_comments_reply']);
-    Route::post('user-comments-reply/send',[CommentsController::class,'user_comments_reply_send']);
-    Route::post('user-comments/delete',[CommentsController::class,'user_comments_delete']);
-
-
+    Route::get('user-comments', [CommentsController::class, 'commentsController']);
+    Route::get('user-comments-reply/{id}', [CommentsController::class, 'user_comments_reply']);
+    Route::post('user-comments-reply/send', [CommentsController::class, 'user_comments_reply_send']);
+    Route::post('user-comments/delete', [CommentsController::class, 'user_comments_delete']);
 });
 
 
 Route::group(['middleware' => ['permission:file_manager']], function () {
-Route::get('/albums', [fileManager::class, 'index']);
-Route::get('/manage-album', [fileManager::class, 'manage_album']);
-Route::get('/manage-album/edit/{id}', [fileManager::class, 'manage_album']);
-Route::post('/manage-album/save', [fileManager::class, 'myadm_manage_album_save']);
-Route::get('/manage-album/upload/{id}', [fileManager::class, 'manage_album_upload']);
-Route::get('/manage-album/upload/album-id/{album_id}/file-id/{file_id}', [fileManager::class, 'manage_album_upload']);
-route::post('/manage-album/upload/files/{album_id}/{file_id}', [fileManager::class, 'manage_album_upload_data']);
-route::post('//manage-album/upload/first/data/insert/files/{album_id}', [fileManager::class, 'manage_album_upload_data']);
-Route::get('/manage-album/view/{id}', [fileManager::class, 'manage_album_view']);
-route::post('/manage-album/file/delete', [fileManager::class, 'file_delete']);
-route::post('/albums/data/delete', [fileManager::class, 'albums_data_delete']);
-Route::get('upload-video/thumbnail/{id}', [fileManager::class, 'upload_video_thumbnail']);
-route::post('/upload-video/thumbnail/process', [fileManager::class, 'upload_video_thumbnail_process']);
-
-
-
-
-
+    Route::get('/albums', [fileManager::class, 'index']);
+    Route::get('/manage-album', [fileManager::class, 'manage_album']);
+    Route::get('/manage-album/edit/{id}', [fileManager::class, 'manage_album']);
+    Route::post('/manage-album/save', [fileManager::class, 'myadm_manage_album_save']);
+    Route::get('/manage-album/upload/{id}', [fileManager::class, 'manage_album_upload']);
+    Route::get('/manage-album/upload/album-id/{album_id}/file-id/{file_id}', [fileManager::class, 'manage_album_upload']);
+    route::post('/manage-album/upload/files/{album_id}/{file_id}', [fileManager::class, 'manage_album_upload_data']);
+    route::post('//manage-album/upload/first/data/insert/files/{album_id}', [fileManager::class, 'manage_album_upload_data']);
+    Route::get('/manage-album/view/{id}', [fileManager::class, 'manage_album_view']);
+    route::post('/manage-album/file/delete', [fileManager::class, 'file_delete']);
+    route::post('/albums/data/delete', [fileManager::class, 'albums_data_delete']);
+    Route::get('upload-video/thumbnail/{id}', [fileManager::class, 'upload_video_thumbnail']);
+    route::post('/upload-video/thumbnail/process', [fileManager::class, 'upload_video_thumbnail_process']);
 });
 
 
@@ -296,9 +280,6 @@ route::post('/upload-video/thumbnail/process', [fileManager::class, 'upload_vide
 
 Route::get('{category}/{pageUrl}', [frontEndController::class, 'single_blog_page']);
 Route::get('{category}', [frontEndController::class, 'category']);
-Route::post('submit-comment/process',[CommentsController::class,'submit_comment']);
+Route::post('submit-comment/process', [CommentsController::class, 'submit_comment']);
 Route::get('search/post/data', [frontEndController::class, 'Search']);
 Route::get('gallery/{category}/{pageUrl}', [frontEndController::class, 'gallery_page']);
-
-
-
